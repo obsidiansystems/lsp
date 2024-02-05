@@ -1,4 +1,4 @@
-{-# LANGUAGE ExplicitNamespaces #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Language.LSP.Server (
   module Language.LSP.Server.Control,

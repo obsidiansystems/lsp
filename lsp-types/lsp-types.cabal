@@ -33,7 +33,7 @@ flag force-ospath
 
 library
   hs-source-dirs:     src generated
-  default-language:   GHC2021
+  default-language:   Haskell2010
 
   -- Various things we want on by default
   -- * syntactic niceties, QOL
@@ -46,16 +46,27 @@ library
   default-extensions:
     DataKinds
     DeriveAnyClass
+    DeriveGeneric
     DerivingStrategies
     DerivingVia
     DuplicateRecordFields
+    FlexibleInstances
     FunctionalDependencies
     GADTs
+    GeneralizedNewtypeDeriving
+    ImportQualifiedPost
+    KindSignatures
+    MultiParamTypeClasses
     NegativeLiterals
     OverloadedStrings
+    PolyKinds
+    ScopedTypeVariables
+    StandaloneDeriving
     StandaloneKindSignatures
     StrictData
+    TypeApplications
     TypeFamilies
+    TypeOperators
     UndecidableInstances
 
   build-depends:
@@ -515,8 +526,9 @@ library metamodel
   -- library, but it's here if people want it
   visibility:         public
   hs-source-dirs:     metamodel
-  default-language:   GHC2021
+  default-language:   Haskell2010
   default-extensions:
+    ImportQualifiedPost
     StrictData
 
   exposed-modules:
@@ -534,11 +546,14 @@ library metamodel
 library lsp-types-quickcheck
   visibility:         public
   hs-source-dirs:     quickcheck generated
-  default-language:   GHC2021
+  default-language:   Haskell2010
   default-extensions:
+    ImportQualifiedPost
     StrictData
     DerivingVia
     DerivingStrategies
+    StandaloneDeriving
+    GeneralizedNewtypeDeriving
 
   exposed-modules:
     Language.LSP.Protocol.QuickCheck
@@ -561,8 +576,9 @@ library lsp-types-quickcheck
 
 executable generator
   hs-source-dirs:     generator
-  default-language:   GHC2021
+  default-language:   Haskell2010
   default-extensions:
+    ImportQualifiedPost
     StrictData
 
   main-is:            Main.hs
@@ -581,7 +597,8 @@ executable generator
 test-suite lsp-types-test
   type:               exitcode-stdio-1.0
   hs-source-dirs:     test
-  default-language:   GHC2021
+  default-language:   Haskell2010
+  default-extensions: ImportQualifiedPost
   main-is:            Main.hs
   other-modules:
     CapabilitiesSpec
